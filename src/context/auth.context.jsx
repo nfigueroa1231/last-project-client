@@ -13,12 +13,17 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
+  const [miLumaToken, setMiLumaToken] = useState('')
+
   const navigate = useNavigate()
 
   /* 
     Functions for handling the authentication status (isLoggedIn, isLoading, user)
     will be added here later in the next step
   */
+ const storeMiLumaToken = (token) => {
+    setMiLumaToken(token)
+ }
 
   const storeToken = (token) => {
     //  <==  ADD
@@ -86,6 +91,8 @@ function AuthProvider({ children }) {
         storeToken,
         authenticateUser,
         logOutUser,
+        miLumaToken,
+        storeMiLumaToken
       }}
     >
       {children}
