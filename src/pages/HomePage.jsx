@@ -1,3 +1,7 @@
+const supportedProviders = [
+  "Luma", 
+  // "Acueductos"
+]
 
 function HomePage() {
   return (

@@ -27,6 +27,15 @@ const MiLuma = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        // guardar el username y el password en Provider
+        post('/providers/create', {username: user.username, password: user.password})
+        .then((response) => {
+            console.log("password saved", response.data)
+        })
+        .catch((err) => {
+            console.log("Error saving password", err)
+        })
+
         post('/mi-luma', user)
         .then((response) => {
             console.log("this is the login response", response.data)
@@ -54,7 +63,7 @@ const MiLuma = () => {
                 Password
                 <input type='text' name='password' onChange={handleTextChange} />
             </label>
-            <button type='sunmit'>Login</button>
+            <button type='submit'>Login</button>
         </form>
 
         {
