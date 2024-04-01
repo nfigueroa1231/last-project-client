@@ -20,13 +20,14 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
-      <Link to='/mi-luma'>MiLuma</Link>
       {/* <Link to='/acueductos'>Mi Acueductos</Link> */}
 
       {/*    UPDATE     */}
       {getToken() ? (
         <>
-          <Link to='/new-account'>Add Account</Link>
+          {/* <Link to='/new-account'>Add Account</Link> */}
+          <Link to='/mi-luma'>MiLuma</Link>
+
           <button onClick={logOutUser}>Logout</button>
           {/* <span>{user && user.name}</span> */}
         </>

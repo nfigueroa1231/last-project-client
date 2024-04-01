@@ -12,12 +12,9 @@ const MiLuma = () => {
     })
 
     const [userInfo, setUserInfo] = useState(null)
-
     const { storeMiLumaToken } = useContext(AuthContext)
-
     const navigate = useNavigate()
 
-    
 
     const handleTextChange = (e) => {
         const { name, value } = e.target;
@@ -28,24 +25,13 @@ const MiLuma = () => {
         e.preventDefault()
 
         // guardar el username y el password en Provider
-        post('/providers/create', {username: user.username, password: user.password})
+        post('/providers', user)
         .then((response) => {
-            console.log("password saved", response.data)
-        })
-        .catch((err) => {
-            console.log("Error saving password", err)
-        })
-
-        post('/mi-luma', user)
-        .then((response) => {
-            console.log("this is the login response", response.data)
+            console.log("saving user data", response.data)
             setUserInfo(response.data)
-            console.log("this is the token", response.data.data.token)
-            storeMiLumaToken(response.data.data.token)
-            navigate('/luma-details')
         })
         .catch((err) => {
-            console.log("Error logging in", err)
+            console.log("Error saving user data", err)
         })
 
     }
@@ -69,7 +55,7 @@ const MiLuma = () => {
         {
             userInfo &&
 
-            <h1>We have user info.</h1>
+            <h1>We have user info. </h1>
         }
 
     </div>

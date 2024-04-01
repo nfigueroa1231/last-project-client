@@ -43,10 +43,10 @@ function SignupPage() {
         console.log(err);
         setErrorMessage(err.response.data.message);
         setNewUser({
-            email: "",
-            password: "",
-            name: "",
-          })
+          email: "",
+          password: "",
+          name: "",
+        })
       });
   };
 

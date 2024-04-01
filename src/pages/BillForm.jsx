@@ -79,10 +79,4 @@ function BillForm() {
 
 export default BillForm;
 
-// company,
-// name,
-// adress,
-// phone,
-// accountNumber,
-// amount, 
-// dueDate,
+

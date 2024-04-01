@@ -9,7 +9,6 @@ import LoginPage from "./pages/LoginPage";
 import BillForm from './pages/BillForm'
 import BillList from './pages/BillList'
 import MiLuma from "./pages/MiLuma";
-import MiLumaAccountDetails from "./pages/MiLumaAccountDetails";
 // import MiAcueductosLogin from "./pages/MiAcueductosLogin";
 
 function App() {
@@ -25,27 +24,26 @@ function App() {
     return !getToken() ? <Outlet /> : <Navigate to="/" />;
   };
 
-  
+
 
   return (
     <div className="App">
-    
+
       <Navbar />
 
-      
+
 
       <Routes>
 
-        <Route path='/mi-luma' element={<MiLuma />} />
-        <Route path='/luma-details' element={<MiLumaAccountDetails />} />
+
         {/* <Route path='/acueductos' element={<MiAcueductosLogin />} /> */}
 
         <Route exact path="/" element={<HomePage />} />
 
         <Route element={<LoggedIn />}>
 
-          <Route path='/new-account' element={<BillForm />} />
           <Route path='/account' element={<BillList />} />
+          <Route path='/mi-luma' element={<MiLuma />} />
 
         </Route>
 
@@ -53,6 +51,7 @@ function App() {
 
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+
 
         </Route>
 
