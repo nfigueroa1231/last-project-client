@@ -9,12 +9,15 @@ import LoginPage from "./pages/LoginPage";
 // import BillForm from './pages/BillForm'
 import BillList from './pages/BillList'
 import MiLuma from "./pages/MiLuma";
+import Dashboard from "./pages/Dashboard"
 // import MiAcueductosLogin from "./pages/MiAcueductosLogin";
 
 function App() {
   const getToken = () => {
+    console.log(localStorage.getItem("authToken"))
     return localStorage.getItem("authToken");
   };
+
 
   const LoggedIn = () => {
     return getToken() ? <Outlet /> : <Navigate to="/login" />;
@@ -35,6 +38,7 @@ function App() {
         <Route element={<LoggedIn />}>
           <Route path='/account' element={<BillList />} />
           <Route path='/mi-luma' element={<MiLuma />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
 
         <Route element={<NotLoggedIn />}>

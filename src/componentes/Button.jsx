@@ -1,4 +1,3 @@
-
 function Button(props) {
 	const {title, type} = props //buttonType si quieres otro
 	return (

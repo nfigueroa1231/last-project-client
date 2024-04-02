@@ -9,6 +9,7 @@ function SignupPage() {
     email: "",
     password: "",
     name: "",
+    lastName: ""
   });
 
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -28,7 +29,7 @@ function SignupPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
+        navigate("/dashboard");
       })
       .catch((err) => {
         setErrorMessage(err.response.data.message);
@@ -36,6 +37,7 @@ function SignupPage() {
           email: "",
           password: "",
           name: "",
+          lastName: ""
         });
       });
   };
@@ -65,7 +67,7 @@ function SignupPage() {
                         <input className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none" type="text" placeholder="First Name" name="name" value={newUser.name} onChange={handleTextChange} />
                       </div>
                       <div className="w-full px-2 lg:w-1/2">
-                        <input className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none" type="text" placeholder="Last Name" name="name" value={newUser.name} onChange={handleTextChange} />
+                        <input className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none" type="text" placeholder="Last Name" name="lastName" value={newUser.lastName} onChange={handleTextChange} />
                       </div>
                     </div>
                     <input className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none" type="email" placeholder="Email address" name="email" value={newUser.email} onChange={handleTextChange} />

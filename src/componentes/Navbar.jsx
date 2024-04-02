@@ -19,7 +19,10 @@ function Navbar() {
         <ul className="navbar-nav mx-auto">
           {getToken() && (
             <li className="nav-item">
-              <Link to='/mi-luma' className="nav-link text-white">MiLuma</Link>
+              <Link to='/dashboard' className="nav-link text-white">
+                <img src="/vite.svg" className="w-14 h-14"></img>
+                Dashboard
+              </Link>
             </li>
           )}
           {!getToken() && (
