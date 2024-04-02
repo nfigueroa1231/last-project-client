@@ -19,7 +19,7 @@ function AddCard() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes implementar la lógica para guardar la tarjeta de banco
+    // implementar la lógica para guardar la tarjeta de banco
     console.log('Formulario enviado:', newCard);
     // Lógica para enviar los datos a tu backend o realizar otras operaciones de guardado
     // Puedes enviar newCard a tu backend utilizando fetch o axios
