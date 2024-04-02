@@ -11,9 +11,11 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-dark bg-dark fixed-bottom">
+    {/* // <nav className="navbar navbar-dark bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 fixed-bottom"> */}
+
       <div className="container">
-        <Link to="/" className="navbar-brand">
-          Home
+        <Link to="/profileuser" className="navbar-brand">
+          Profile
         </Link>
 
         <ul className="navbar-nav mx-auto">

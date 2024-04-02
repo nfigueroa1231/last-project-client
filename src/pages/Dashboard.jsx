@@ -35,6 +35,7 @@ function Dashboard() {
               </div>
             </div>
           ))}
+          
           {providersList && providersList.length === 0 && (
             // ADD PROVIDER VIEW
             <div className="pt-5 pl-5 max-w-xs">

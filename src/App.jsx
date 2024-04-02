@@ -6,11 +6,9 @@ import Navbar from "./componentes/Navbar";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-// import BillForm from './pages/BillForm'
-import BillList from './pages/BillList'
 import MiLuma from "./pages/MiLuma";
 import Dashboard from "./pages/Dashboard"
-// import MiAcueductosLogin from "./pages/MiAcueductosLogin";
+import ProfileUser from "./pages/ProfileUser";
 
 function App() {
   const getToken = () => {
@@ -36,9 +34,9 @@ function App() {
         {/* <Route exact path="/" element={<HomePage />} /> */}
 
         <Route element={<LoggedIn />}>
-          <Route path='/account' element={<BillList />} />
           <Route path='/mi-luma' element={<MiLuma />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profileuser" element={<ProfileUser/>} />
         </Route>
 
         <Route element={<NotLoggedIn />}>
