@@ -41,7 +41,7 @@ function LoginPage() {
         <div className="flex flex-wrap items-center justify-center">
           <div className="max-w-sm mb-16 lg:mb-0 lg:max-w-2xl lg:w-1/2 lg:px-4">
             <Link to="/" className="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-              <span className="mx-auto text-2xl font-black leading-none text-gray-500 select-none">ExpressPay</span>
+              <span className="mx-auto text-2xl font-black leading-none text-gray-500 select-none">DebtPaid</span>
             </Link>
             <h1 className="mb-4 text-4xl font-bold leading-none">Login</h1>
             <form onSubmit={handleLoginSubmit}>

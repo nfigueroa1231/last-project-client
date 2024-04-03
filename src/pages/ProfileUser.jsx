@@ -1,9 +1,34 @@
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context"
+import AddCard from "./AddCard"
+import { get } from '../services/authService'
 
 const ProfileUser = () => {
 
     const { user } = useContext(AuthContext)
+
+    const [adding, setAdding] = useState(false)
+    const [paymentMethods, setPaymentMethods] = useState([])
+
+    const navigate = useNavigate()
+
+    const editAccount = (id) => {
+      navigate(`/edit-account/${id}`)
+    }
+
+    useEffect(() => {
+
+      get('/payments')
+        .then((response) => {
+          console.log("Found payment methods ===>", response.data)
+          setPaymentMethods(response.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+
+    }, [])
 
 
   return (
@@ -15,6 +40,45 @@ const ProfileUser = () => {
             <>
 
                 <h2>Welcome {user.name} {user.lastName}!</h2>
+                <p>{user.email}</p>
+                <p>{user.password}</p>
+
+                <button onClick={() => setAdding(true)}>Add Payment Information</button>
+ 
+            {
+              adding &&
+
+              <div>
+
+                <AddCard setAdding={setAdding}/>
+
+                <button onClick={() => setAdding(false)}>Cancel</button>
+              </div>
+            }
+
+            {
+              paymentMethods.length > 0 && 
+              <>
+                {
+                  paymentMethods.map((bank) => {
+                    return (
+                      <div key={bank._id}>
+                        <h3>{bank.bankName}</h3>
+                        <button onClick={() => editAccount(bank._id)}>Edit Account</button>
+                      </div>
+                    )
+                  })
+                }
+              </>
+            }
+
+            {/* {
+                bankAccount
+                banckRouting
+                accountHolder
+                bankType
+                bankName
+            } */}
          
             </>
         }

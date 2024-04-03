@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { post } from '../services/authService'
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { get, put, axiosDelete } from '../services/authService'
 
-function AddCard({ setAdding }) {
+function EditAccount() {
   const [cardInfo, setCardInfo] = useState({
     bankAccount: '',
     banckRouting: '',
@@ -12,6 +12,8 @@ function AddCard({ setAdding }) {
   });
 
   const navigate = useNavigate()
+
+  const { accountId } = useParams()
 
 
   const handleChange = (e) => {
@@ -24,7 +26,7 @@ function AddCard({ setAdding }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    post('/payments', cardInfo)
+    put(`/payments/${accountId}`, cardInfo)
       .then((response) => {
         console.log("Información de la tarjeta:", response.data)
         setCardInfo({
@@ -34,7 +36,6 @@ function AddCard({ setAdding }) {
           bankType: '',
           bankName: ''
         });
-        setAdding(false)
         navigate('/profileuser')
       })
       .catch((err) => {
@@ -43,6 +44,32 @@ function AddCard({ setAdding }) {
 
     
   };
+
+  const handleDelete = () => {
+    axiosDelete(`/payments/${accountId}`)
+        .then((response) => {
+            console.log("Deleted account ===>", response.data)
+            navigate('/profileuser')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+  }
+
+  useEffect(() => {
+
+    get(`/payments/${accountId}`)
+        .then((response) => {
+            console.log("Found account ===>", response.data)
+            setCardInfo(response.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+  }, [accountId])
+
+
 
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden p-6 max-w-lg mx-auto">
@@ -70,12 +97,13 @@ function AddCard({ setAdding }) {
         </div>
         <button type="submit" className="relative bg-black px-6 py-3 rounded mt-4 overflow-hidden">
           <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
-            Save
+            Update
           </span>
         </button>
       </form>
+      <button onClick={handleDelete}>Delete Account</button>
     </div>
   );
 }
 
-export default AddCard;
+export default EditAccount;

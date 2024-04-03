@@ -24,6 +24,10 @@ function Dashboard() {
         navigate(`/provider/${id}`)
     }
 
+    const handleOtherClick = () => {
+      navigate('/mi-luma')
+    }
+
     return (
         <div>
           {providersList && providersList?.map((provider, index) => (
@@ -43,7 +47,7 @@ function Dashboard() {
             // ADD PROVIDER VIEW
             <div className="pt-5 pl-5 max-w-xs">
                 <p>Add a new provider</p>
-              <div className="w-80 h-40 rounded overflow-hidden shadow-lg" onClick={handleClick}>
+              <div className="w-80 h-40 rounded overflow-hidden shadow-lg" onClick={handleOtherClick}>
                 {/* <p>Add a new provider</p> */}
               </div>
             </div>
@@ -53,3 +57,8 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+
+
+
+

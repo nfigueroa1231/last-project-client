@@ -51,7 +51,7 @@ function SignupPage() {
               className="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-start md:mb-0"
             >
               <span className="mx-auto text-2xl font-black leading-none text-gray-500 select-none">
-                ExpressPay
+                DebtPaid
               </span>
             </Link>
             <h2 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl xl:text-7xl">
