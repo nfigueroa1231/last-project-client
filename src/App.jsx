@@ -8,6 +8,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import MiLuma from "./pages/MiLuma";
 import Dashboard from "./pages/Dashboard"
+import ProviderDetails from "./pages/ProviderDetails";
 import ProfileUser from "./pages/ProfileUser";
 
 function App() {
@@ -36,7 +37,8 @@ function App() {
         <Route element={<LoggedIn />}>
           <Route path='/mi-luma' element={<MiLuma />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profileuser" element={<ProfileUser/>} />
+          <Route path='/provider/:providerId' element={<ProviderDetails />} />
+          <Route path="/profileuser/:userId" element={<ProfileUser/>} />
         </Route>
 
         <Route element={<NotLoggedIn />}>

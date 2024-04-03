@@ -55,14 +55,14 @@ function SignupPage() {
               </span>
             </Link>
             <h2 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl xl:text-7xl">
-              Signup today and we will autopay you're bills.
+              Signup today and we will autopay your bills.
             </h2>
           </div>
           <div className="w-full px-4 lg:w-1/2">
             <div className="max-w-sm mx-auto lg:mr-0 lg:ml-auto">
               <div className="overflow-hidden text-center bg-white rounded-md shadow-sm">
                 <div className="px-6 py-8">
-                  <ProfileUser newUser={newUser} /> {/* ProfileUser/////////////////////// */}
+                  {/* <ProfileUser newUser={newUser} /> ProfileUser   /////////////////////// esto no va */}
 
                   <form onSubmit={handleSignupSubmit} className="">
                     <div className="mb-6">
