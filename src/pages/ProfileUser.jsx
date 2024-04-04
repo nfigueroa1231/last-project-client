@@ -1,186 +1,90 @@
-import { useContext, useState, useEffect } from "react"
-import { useNavigate } from 'react-router-dom'
-import { AuthContext } from "../context/auth.context"
-import AddCard from "./AddCard"
-import { get } from '../services/authService'
+import { useContext, useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../context/auth.context";
+import AddCard from "./AddCard";
+import { get } from '../services/authService';
 
 const ProfileUser = () => {
 
-    const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
-    const [adding, setAdding] = useState(false)
-    const [paymentMethods, setPaymentMethods] = useState([])
+  const [adding, setAdding] = useState(false);
+  const [paymentMethods, setPaymentMethods] = useState([]);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const editAccount = (id) => {
+    navigate(`/edit-account/${id}`);
+  };
 
-    const editAccount = (id) => {
-      navigate(`/edit-account/${id}`)
-    }
-
-    useEffect(() => {
-
-      get('/payments')
-        .then((response) => {
-          console.log("Found payment methods ===>", response.data)
-          setPaymentMethods(response.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-
-    }, [])
-
+  useEffect(() => {
+    get('/payments')
+      .then((response) => {
+        console.log("Found payment methods ===>", response.data);
+        setPaymentMethods(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
-    <div>
-        <h1>Profile</h1>
 
-        {
-            user && 
-            <>
 
-                <h2>Welcome {user.name} {user.lastName}!</h2>
-                <p>{user.email}</p>
-                <p>{user.password}</p>
 
-                <button onClick={() => setAdding(true)}>Add Payment Information</button>
- 
-            {
-              adding &&
+    <div className="bg-green container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-4">Profile</h1>
+      {user &&
+        <>
+          <h2 className="text-xl mb-2">Welcome {user.name} {user.lastName}!</h2>
+          <p className="mb-2">Email: {user.email}</p>
 
-              <div>
+          <button onClick={() => setAdding(true)} className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4 overflow-hidden">
+            <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+              Add Payment Information
+            </span>
+          </button>
 
-                <AddCard setAdding={setAdding}/>
 
-                <button onClick={() => setAdding(false)}>Cancel</button>
-              </div>
-            }
 
-            {
-              paymentMethods.length > 0 && 
-              <>
-                {
-                  paymentMethods.map((bank) => {
-                    return (
-                      <div key={bank._id}>
-                        <h3>{bank.bankName}</h3>
-                        <button onClick={() => editAccount(bank._id)}>Edit Account</button>
-                      </div>
-                    )
-                  })
-                }
-              </>
-            }
+          {adding &&
+            <div className="mt-4">
+              <AddCard setAdding={setAdding} />
+              <button onClick={() => setAdding(false)} className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4 overflow-hidden">
+            <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+            Cancel
+            </span>
+          </button>
 
-            {/* {
-                bankAccount
-                banckRouting
-                accountHolder
-                bankType
-                bankName
-            } */}
-         
-            </>
-        }
-    
-    
+
+            </div>
+          }
+
+          {paymentMethods.length > 0 &&
+            <div className="mt-4">
+              {paymentMethods.map((bank) => (
+                <div key={bank._id} className="border p-4 mb-4">
+                  <h3 className="text-xl mb-2">{bank.bankName} {bank.accountHolder}</h3>
+
+
+                  <button onClick={() => editAccount(bank._id)} className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4 overflow-hidden">
+                    <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+                      Edit Account
+                    </span>
+                  </button>
+
+
+
+                </div>
+              ))}
+            </div>
+          }
+        </>
+      }
     </div>
-  )
+  );
 }
 
-export default ProfileUser
+export default ProfileUser;
 
 
-
-// import { useEffect, useState } from "react";
-
-// const [userInfo, setUserInfo] = useState(null)
-
-// function ProfileUser() {
-
-//     // useEffect(() => {    API CALL
-//     //     get('/user')
-//     //         .then((response) => {
-//     //             console.log("Here is the user information previously submitted", response.data)
-//     //             setUserInfo(response.data)
-//     //         })
-//     //         .catch((err) => {
-//     //             console.log("Error getting previous user information", err)
-//     //         })
-//     // }, []);
-
-//     const handleSubmit = (e) => {
-//       e.preventDefault();
-  
-//       post("/auth/signup", newUser)
-//         .then((response) => {
-//           storeToken(response.data.authToken);
-//           authenticateUser();
-//           navigate("/dashboard");
-//         })
-//         .catch((err) => {
-//           setErrorMessage(err.response.data.message);
-//           setUserInfo({
-//             email: "",
-//             password: "",
-//             name: "",
-//             lastName: ""
-//           });
-//         });
-//     };
-
-//     return (
-//         <>
-//             <form onSubmit={handleSubmit} className="">
-//                 <div className="mb-6">
-//                     <span className="text-sm text-gray-300">
-//                         Fill out the info you want to update!
-//                     </span>
-//                     <h4 className="text-2xl font-semibold text-gray-700">
-//                         Create your account
-//                     </h4>
-//                 </div>
-//                 <div className="flex flex-wrap mb-4 -mx-2">
-//                     <div className="w-full px-2 mb-4 lg:mb-0 lg:w-1/2">
-//                         <input
-//                             className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
-//                             type="text"
-//                             placeholder="First Name"
-//                             name="name"
-//                             value={userInfo.name}
-//                             onChange={handleTextChange}
-//                         />
-//                     </div>
-//                     <div className="w-full px-2 lg:w-1/2">
-//                         <input
-//                             className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
-//                             type="text"
-//                             placeholder="Last Name"
-//                             name="lastName"
-//                             value={userInfo.lastName}
-//                             onChange={handleTextChange}
-//                         />
-//                     </div>
-//                 </div>
-//                 <input
-//                     className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
-//                     type="email"
-//                     placeholder="Email address"
-//                     name="email"
-//                     value={userInfo.email}
-//                     onChange={handleTextChange}
-//                 />
-//                 <input
-//                     className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
-//                     type="password"
-//                     placeholder="Enter your password"
-//                     name="password"
-//                     onChange={handleTextChange}
-//                 />
-//                 <Button title={"Sign Up"} type={"submit"} />
-//             </form>
-//         </>
-//     );
-// }
-
-// export default ProfileUser;
+{/* <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl"> */ }

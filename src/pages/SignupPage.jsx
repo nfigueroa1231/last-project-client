@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link, useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
-import Button from "../componentes/Button";
-import ProfileUser from "./ProfileUser"; 
+import ProfileUser from "./ProfileUser";
 
 function SignupPage() {
   const [newUser, setNewUser] = useState({
@@ -62,7 +61,6 @@ function SignupPage() {
             <div className="max-w-sm mx-auto lg:mr-0 lg:ml-auto">
               <div className="overflow-hidden text-center bg-white rounded-md shadow-sm">
                 <div className="px-6 py-8">
-                  {/* <ProfileUser newUser={newUser} /> ProfileUser   /////////////////////// esto no va */}
 
                   <form onSubmit={handleSignupSubmit} className="">
                     <div className="mb-6">
@@ -76,7 +74,7 @@ function SignupPage() {
                     <div className="flex flex-wrap mb-4 -mx-2">
                       <div className="w-full px-2 mb-4 lg:mb-0 lg:w-1/2">
                         <input
-                          className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
+                          className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-gray-500 border-gray-100 rounded focus:outline-none"
                           type="text"
                           placeholder="First Name"
                           name="name"
@@ -86,7 +84,7 @@ function SignupPage() {
                       </div>
                       <div className="w-full px-2 lg:w-1/2">
                         <input
-                          className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
+                          className="py-2.5 px-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-gray-500 border-gray-100 rounded focus:outline-none"
                           type="text"
                           placeholder="Last Name"
                           name="lastName"
@@ -96,7 +94,7 @@ function SignupPage() {
                       </div>
                     </div>
                     <input
-                      className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
+                      className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-gray-500 border-gray-100 rounded focus:outline-none"
                       type="email"
                       placeholder="Email address"
                       name="email"
@@ -104,32 +102,32 @@ function SignupPage() {
                       onChange={handleTextChange}
                     />
                     <input
-                      className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-indigo-500 border-gray-100 rounded focus:outline-none"
+                      className="py-2.5 px-4 mb-4 w-full bg-gray-50 border focus:ring-2 focus:ring-opacity-90 focus:ring-gray-500 border-gray-100 rounded focus:outline-none"
                       type="password"
                       placeholder="Enter your password"
                       name="password"
                       value={newUser.password}
                       onChange={handleTextChange}
                     />
-                    <Button title={"Sign Up"} type={"submit"} />
+                    <button
+                      type="submit"
+                      className="w-full px-4 py-2 text-white bg-black rounded-sm hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
+                    >
+                      Sign Up
+                    </button>
                   </form>
 
                   {errorMessage && (
-                    <p className="text-xs text-gray-400">{errorMessage}</p>
+                    <p className="text-xs text-red-400">{errorMessage}</p>
                   )}
                   <p className="text-xs text-gray-400">
                     <span>Already have an account?</span>
-                    <Link to="/login" className="text-indigo-500">
-                      Sign In
+                    <Link to="/login" className="font-bold text-black">
+                      Log In
                     </Link>
                   </p>
                 </div>
-                <div className="py-2 text-xs font-medium text-gray-300 border-t border-gray-100 bg-gray-50">
-                  By signing up, you agree to our{" "}
-                  <a href="#_" className="text-indigo-400 underline">
-                    Terms of Service
-                  </a>
-                </div>
+
               </div>
             </div>
           </div>

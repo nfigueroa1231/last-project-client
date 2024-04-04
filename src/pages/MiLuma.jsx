@@ -65,8 +65,7 @@ const MiLuma = () => {
                 <div className="flex items-center justify-between">
                     <button
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    >
+                        className="w-full h-full bg-clip-text text-transparent  bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
                         Log In
                     </button>
                     {userInfo && <h1 className="text-green-500">We have user info.</h1>}

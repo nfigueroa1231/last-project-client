@@ -46,9 +46,15 @@ function Dashboard() {
           {providersList && providersList.length === 0 && (
             // ADD PROVIDER VIEW
             <div className="pt-5 pl-5 max-w-xs">
-                <p>Add a new provider</p>
               <div className="w-80 h-40 rounded overflow-hidden shadow-lg" onClick={handleOtherClick}>
                 {/* <p>Add a new provider</p> */}
+
+                <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+                Add a new provider
+                    </span>
+
+
+
               </div>
             </div>
           )}

@@ -59,18 +59,18 @@ function LoginPage() {
                 name="password"
                 value={thisUser.password}
                 onChange={handleTextChange}
-                className="w-full px-4 py-2 mb-4 bg-gray-200 border border-gray-300 rounded-sm focus:outline-none focus:border-indigo-500"
+                className="w-full px-4 py-2 mb-4 bg-gray-200 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 text-white bg-indigo-600 rounded-sm hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
+                className="w-full px-4 py-2 text-white bg-black rounded-sm hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
               >
                 Login
               </button>
             </form>
             {errorMessage && <p className="mt-4 text-xs text-red-500">{errorMessage}</p>}
             <p className="mt-4 text-gray-600">
-              Don't have an account yet? <Link to="/signup" className="text-indigo-600">Sign Up</Link>
+              Don't have an account yet? <Link to="/signup" className="font- bold text-black">Sign Up</Link>
             </p>
           </div>
         </div>
