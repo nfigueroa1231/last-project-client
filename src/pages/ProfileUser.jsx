@@ -52,6 +52,7 @@ const ProfileUser = () => {
               {paymentMethods.map((bank) => (
                 <div key={bank._id} className="border p-4 mb-4">
                   <h2 className="text-3xl font-bold mb-4">{bank.accountHolder}</h2>
+                  <p className="text-gray-700">Bank Number: {bank.bankA}</p>
                   <p className="text-gray-700">Bank Name: {bank.bankName}</p>
                   <p className="text-gray-700">Bank Routing: {bank.banckRouting}</p>
                   <p className="text-gray-700">Account Holder: {bank.accountHolder}</p>

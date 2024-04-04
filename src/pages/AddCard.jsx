@@ -53,8 +53,8 @@ function AddCard({ setAdding }) {
           <input type="text" id="accountNumber" name="bankAccount" value={cardInfo.bankAccount} onChange={handleChange} className="block w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" />
         </div>
         <div className="mb-4">
-          <label htmlFor="bankRoute" className="block text-gray-700 font-semibold mb-2">Bank Route:</label>
-          <input type="text" id="bankRoute" name="banckRouting" value={cardInfo.banckRouting} onChange={handleChange} className="block w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" />
+          <label htmlFor="bankRouting" className="block text-gray-700 font-semibold mb-2">Bank Routing:</label>
+          <input type="text" id="bankRouting" name="banckRouting" value={cardInfo.banckRouting} onChange={handleChange} className="block w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" />
         </div>
         <div className="mb-4">
           <label htmlFor="cardName" className="block text-gray-700 font-semibold mb-2">Account Holder:</label>

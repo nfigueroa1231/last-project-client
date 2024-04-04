@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard"
 import ProviderDetails from "./pages/ProviderDetails";
 import ProfileUser from "./pages/ProfileUser";
 import EditAccount from "./pages/EditAccount";
+import ProviderCards from "./componentes/ProviderCards";
 
 function App() {
   const getToken = () => {
@@ -49,6 +50,8 @@ function App() {
           <Route path='/provider/:providerId' element={<ProviderDetails />} />
           <Route path="/profileuser" element={<ProfileUser/>} />
           <Route path='/edit-account/:accountId' element={<EditAccount />} />
+          <Route path='/providercards' element={<ProviderCards />} />
+
 
         </Route>
 
