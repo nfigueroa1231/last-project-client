@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-dark bg-dark fixed-bottom">
+    <nav className="navbar navbar-dark mt-24 bg-dark fixed-bottom">
       <div className="container">
 
         <ul className="navbar-nav mx-auto flex-row justify-between w-screen">

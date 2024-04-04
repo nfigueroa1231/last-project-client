@@ -41,11 +41,11 @@ function AddCard({ setAdding }) {
         console.log(err)
       })
 
-    
+
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden p-6 max-w-lg mx-auto">
+    <div className="bg-white mb-24 shadow-md rounded-lg overflow-hidden p-6 max-w-lg mx-auto">
       <h2 className="text-xl font-semibold mb-4">Add Bank Information</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -68,12 +68,25 @@ function AddCard({ setAdding }) {
           <label htmlFor="bankName" className="block text-gray-700 font-semibold mb-2">Bank Name:</label>
           <input type="text" id="bankName" name="bankName" value={cardInfo.bankName} onChange={handleChange} className="block w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" />
         </div>
+        {/* <button onClick={() => setAdding(false)} className="relative bg-black px-6 py-3 rounded mt-4 overflow-hidden">
+          <span className="absolute top-0  left-0 w-ful h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+            Cancel
+          </span>
+        </button> */}
         <button type="submit" className="relative bg-black px-6 py-3 rounded mt-4 overflow-hidden">
-          <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+          <span className="absolute top-0  left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
             Save
           </span>
         </button>
+       <div>
+       <button onClick={() => setAdding(false)} className="relative bg-black px-6 py-3 rounded mt-4 overflow-hidden">
+          <span className="absolute top-0  left-0 w-ful h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+            Cancel
+          </span>
+        </button>
+       </div>
       </form>
+
     </div>
   );
 }

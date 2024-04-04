@@ -49,11 +49,7 @@ const ProfileUser = () => {
           {adding &&
             <div className="mt-4">
               <AddCard setAdding={setAdding} />
-              <button onClick={() => setAdding(false)} className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4 overflow-hidden">
-            <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
-            Cancel
-            </span>
-          </button>
+             
 
 
             </div>
