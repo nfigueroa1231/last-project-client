@@ -56,7 +56,6 @@ const ProviderDetails = () => {
             {thisProvider && (
                 <>
                 
-                    <h2 className="text-xl mb-4">{thisProvider.type}</h2>
                     <p><Link to="#">Update provider credentials</Link></p>
                     <button onClick={deleteProvider} className="relative bg-black px-20 py-3 rounded mt-4 overflow-hidden">
                         <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">

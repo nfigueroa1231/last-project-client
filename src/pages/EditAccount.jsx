@@ -95,13 +95,22 @@ function EditAccount() {
           <label htmlFor="bankName" className="block text-gray-700 font-semibold mb-2">Bank Name:</label>
           <input type="text" id="bankName" name="bankName" value={cardInfo.bankName} onChange={handleChange} className="block w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" />
         </div>
-        <button type="submit" className="relative bg-black px-6 py-3 rounded mt-4 overflow-hidden">
-          <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+        
+        <div className="flex justify-between mt-4">
+    <button type="submit" className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded overflow-hidden">
+        <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
             Update
-          </span>
-        </button>
+        </span>
+    </button>
+    <button onClick={handleDelete} className="relative bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded overflow-hidden">
+        <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+            Delete
+        </span>
+    </button>
+</div>
+
       </form>
-      <button onClick={handleDelete}>Delete Account</button>
+      {/* <button onClick={handleDelete}>Delete Account</button> */}
     </div>
   );
 }
