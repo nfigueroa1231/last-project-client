@@ -1,7 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { AuthContext } from '../context/auth.context'
-import { get } from '../services/authService'
+import { axiosDelete, get } from '../services/authService'
 
 const ProviderDetails = () => {
     const [thisProvider, setThisProvider] = useState(null)
@@ -9,9 +11,36 @@ const ProviderDetails = () => {
     const { providerId } = useParams()
     const { user } = useContext(AuthContext)
 
+    const navigate = useNavigate()
+
+
     const deleteProvider = () => {
+        console.log(providerId)
+        axiosDelete(`/providers/${providerId}`)
+        .then((response) => {
+            console.log("Deleted provider =====>", response.data)
+            navigate('/dashboard')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
         console.log("Deleting provider....")
     }
+
+    // const handleDelete = () => {
+    //     axiosDelete(`/payments/${accountId}`)
+    //         .then((response) => {
+    //             console.log("Deleted account ===>", response.data)
+    //             navigate('/profileuser')
+    //         })
+    //         .catch((err) => {
+    //             console.log(err)
+    //         })
+    //   }
+
+    
+
+
 
     useEffect(() => {
         get(`/providers/details/${providerId}`)

@@ -24,9 +24,7 @@ function Dashboard() {
     navigate(`/provider/${id}`)
   }
 
-  // const handleOtherClick = () => {
-  //   navigate('/mi-luma')
-  // }
+ 
 
   const handleOtherClick = () => {
     navigate('/providercards')
@@ -48,42 +46,22 @@ function Dashboard() {
         </div>
       ))}
 
-      {providersList && providersList.length === 0 && (
-        // ADD PROVIDER VIEW
         <div className="pt-5 pl-5 max-w-xs">
           <div className="w-80 h-40 rounded overflow-hidden shadow-lg" onClick={handleOtherClick}>
-
-            {/* <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
-                Add a new provider
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-20 h-20">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-                    </span> */}
             <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl text-black">
-              Add a new provider
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-20 h-20">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
+              <img className="w-full h-full object-cover" src={"https://wumbo.net/symbols/plus/feature.png"} alt="Imagen" />
+
             </span>
-
-
-
 
           </div>
         </div>
-      )}
     </div>
   );
 }
 
 export default Dashboard;
 
-{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>    plus */}
-{/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>        */}
+
 
 
 

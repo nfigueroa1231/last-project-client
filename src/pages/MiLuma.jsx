@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import { post } from '../services/authService';
+import { useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+
 
 const MiLuma = () => {
+
+
+    const navigate = useNavigate()
+    // const history = useHistory();
+
+
     const [user, setUser] = useState({
         username: '',
         password: ''
@@ -21,10 +30,18 @@ const MiLuma = () => {
             .then((response) => {
                 console.log('saving user data', response.data);
                 setUserInfo(response.data);
+                setTimeout(() => {
+                    navigate('/dashboard')
+
+                }, 1000);
             })
             .catch((err) => {
                 console.log('Error saving user data', err);
             });
+
+
+
+
     };
 
     return (
@@ -60,11 +77,11 @@ const MiLuma = () => {
                         <button
                             type="submit"
                             className="relative bg-black px-20 py-3 rounded mt-4 overflow-hidden">
-                        <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
-                            Log in
-                        </span>
+                            <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
+                                Log in
+                            </span>
                         </button>
-                        {userInfo && <h1 className="text-green-500">We have user info.</h1>}
+                        {userInfo && <h1 className="text-green-500">Sucess</h1>}
                     </div>
                 </form>
             </div>

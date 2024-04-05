@@ -1,25 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// function HomePage() {
+
+
+//   return (
+//     <section className="w-full bg-white overflow-hidden">
+//       <div className="max-w-7xl mx-auto px-10">
+//         <div className="flex flex-col flex-wrap items-center justify-between py-7 mx-auto md:flex-row max-w-7xl">
+          
+//           <div className="relative flex flex-col md:flex-row">
+//             <Link to="/" className="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+//               <span className="mx-auto text-2xl font-black leading-none text-gray-500 select-none">DebtPaid</span>
+//             </Link>
+//             <nav className="flex flex-wrap items-center mb-5 text-lg md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-800">
+//               <Link to="/" className="mr-5 font-medium leading-6 text-gray-400 hover:text-gray-300">Home</Link>
+    
+//             </nav>
+//           </div>
+
+//           <div className="inline-flex items-center ml-5 text-lg space-x-6 lg:justify-end">
+//             <Link to="/login" className="text-base font-medium leading-6 text-gray-400 hover:text-gray-300 whitespace-no-wrap transition duration-150 ease-in-out">Login</Link> 
+//             <Link to="/signup" className="inline-flex items-center justify-center px-4 py-2 font-medium leading-6 text-gray-200 hover:text-white whitespace-no-wrap bg-gray-800 border border-transparent rounded shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">Signup</Link>
+//           </div>
+//         </div>
+
+
+
+
+
+
+
+
 function HomePage() {
-
-
   return (
     <section className="w-full bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-10">
-        <div className="flex flex-col flex-wrap items-center justify-between py-7 mx-auto md:flex-row max-w-7xl">
-          
-          <div className="relative flex flex-col md:flex-row">
-            <Link to="/" className="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+        <div className="flex flex-col md:flex-row items-center justify-between py-7 mx-auto max-w-7xl">
+          {/* Logo y navegación */}
+          <div className="relative flex flex-col md:flex-row items-center">
+            <Link to="/" className="flex items-center md:mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
               <span className="mx-auto text-2xl font-black leading-none text-gray-500 select-none">DebtPaid</span>
             </Link>
-            <nav className="flex flex-wrap items-center mb-5 text-lg md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-800">
-              <Link to="/" className="mr-5 font-medium leading-6 text-gray-400 hover:text-gray-300">Home</Link>
-    
+            <nav className="flex flex-wrap items-center md:mb-5 text-lg md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-800">
+              <Link to="/" className="mr-5 font-medium text-gray-400 hover:text-gray-300">Home</Link>
             </nav>
           </div>
 
-          <div className="inline-flex items-center ml-5 text-lg space-x-6 lg:justify-end">
+          {/* Botones de Login y Signup */}
+          <div className="flex flex-col md:flex-row items-center md:ml-auto text-lg space-y-5 md:space-y-0 md:space-x-6 lg:justify-end">
             <Link to="/login" className="text-base font-medium leading-6 text-gray-400 hover:text-gray-300 whitespace-no-wrap transition duration-150 ease-in-out">Login</Link> 
             <Link to="/signup" className="inline-flex items-center justify-center px-4 py-2 font-medium leading-6 text-gray-200 hover:text-white whitespace-no-wrap bg-gray-800 border border-transparent rounded shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">Signup</Link>
           </div>
@@ -42,3 +71,4 @@ function HomePage() {
 }
 
 export default HomePage;
+
