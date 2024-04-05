@@ -13,7 +13,7 @@ function ProviderCards() {
                 <h1 className="mb-1 text-4xl font-extrabold leading-none text-gray-900 lg:text-5xl xl:text-6xl sm:mb-3">
                     <a href="#_">Here are the providers</a>
                 </h1>
-                <p className="text-lg font-medium w-screen text-gray-500 sm:text-2xl">You can add as many providers as you want for DebtPaid to pay for you and to keep your payments up to date.</p>
+                <p className="text-lg font-medium w-screen text-gray-500 sm:text-2xl">"Let DebtPaid handle it all! Connect with unlimited providers to keep your payments on point and your worries at bay.</p>
                 <div className="flex grid h-full grid-cols-12 gap-10 pb-10 mt-8 sm:mt-16">
                     <div className="grid grid-cols-12 col-span-12 gap-7">
 
@@ -29,7 +29,7 @@ function ProviderCards() {
                         </div>
                         <div className="flex flex-col items-start col-span-12 overflow-hidden shadow-sm rounded-xl md:col-span-6 lg:col-span-4">
                             <a href="#_" className="block transition duration-200 ease-out transform hover:scale-110">
-                                <img className="object-cover w-screen shadow-sm max-h-56" src="https://recommerce-static.recharge.com/media/cache/product_card/27/6e/f4a3b7e46be9234663ac4d86bf6f.png" />
+                                <img className="object-cover w-screen shadow-sm max-h-56 " src="https://recommerce-static.recharge.com/media/cache/product_card/27/6e/f4a3b7e46be9234663ac4d86bf6f.png" />
                             </a>
                         </div>
                     </div>

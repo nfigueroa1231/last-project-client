@@ -17,13 +17,13 @@ const ProviderDetails = () => {
     const deleteProvider = () => {
         console.log(providerId)
         axiosDelete(`/providers/${providerId}`)
-        .then((response) => {
-            console.log("Deleted provider =====>", response.data)
-            navigate('/dashboard')
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+            .then((response) => {
+                console.log("Deleted provider =====>", response.data)
+                navigate('/dashboard')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         console.log("Deleting provider....")
     }
 
@@ -38,7 +38,7 @@ const ProviderDetails = () => {
     //         })
     //   }
 
-    
+
 
 
 
@@ -66,8 +66,8 @@ const ProviderDetails = () => {
                 <>
                     {theseAccounts.map((account, index) => (
                         <div key={index} className="border p-4 mb-4">
-                            <p>User Name: {thisProvider.username}</p>                        
-                            <p>{thisProvider.type}</p>                        
+                            <p>User Name: {thisProvider.username}</p>
+                            <p>{thisProvider.type}</p>
                             <p>Account Number: {account.accountNumber}</p>
                             <p>Email: {account.email}</p>
                             <p>Delinquent Amount: ${account.delinquentAmount}</p>
@@ -84,14 +84,12 @@ const ProviderDetails = () => {
             )}
             {thisProvider && (
                 <>
-                
-                    <p><Link to="#">Update provider credentials</Link></p>
                     <button onClick={deleteProvider} className="relative bg-black px-20 py-3 rounded mt-4 overflow-hidden">
                         <span className="absolute top-0 left-0 w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
                             Remove Provider
                         </span>
                     </button>
-          
+
                 </>
             )}
         </div>

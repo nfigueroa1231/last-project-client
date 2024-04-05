@@ -33,6 +33,10 @@ function Dashboard() {
 
   return (
     <div>
+      <h1 className="mb-1 mt-5 text-4xl font-extrabold ml-5 leading-none text-gray-900 lg:text-5xl xl:text-6xl sm:mb-3">
+                    <a href="#_">DebtPaid</a>
+                </h1>
+                <p className="text-lg ml-5 font-medium w-screen text-gray-500 sm:text-2xl">No Providers? Let's Boost Your Game! Click 'Add' and Get Rolling</p>
       {providersList && providersList?.map((provider, index) => (
         <div key={index} className="pt-5 pl-5 max-w-xs" onClick={() => handleClick(provider._id)}>
           <div className="w-80 h-40 rounded overflow-hidden shadow-lg">

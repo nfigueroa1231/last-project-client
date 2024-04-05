@@ -41,6 +41,8 @@ const ProfileUser = () => {
         <>
           <p className="text-lg font-medium w-screen text-gray-500 sm:text-2xl">Welcome, <span className="font-bold">{user.name} {user.lastName}</span>!</p>
           <p className="text-gray-700 mb-2">Email: <span className="text-gray-900">{user.email}</span></p>
+          <p className="text-gray-700 mb-2">Password: <span className="text-gray-900">{user.password}</span></p>
+
 
           <button onClick={() => setAdding(true)} className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded mt-4 overflow-hidden">
             <span className="w-full h-full bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-xl">
